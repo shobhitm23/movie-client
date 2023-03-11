@@ -21,8 +21,8 @@ function App() {
         const arr = Array.from(data.entries())
         setMovies(arr);
         console.log(arr);
-        
-        console.log(arr[0][1]["poster"]);
+
+        console.log(arr[0][1]["backdrops"][0]);
       });
   }, []);
 

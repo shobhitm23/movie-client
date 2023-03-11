@@ -11,11 +11,15 @@ const Hero = ({movies})=> {
                     return (
                         <Paper key={movie[1].id}>
                             <div className="movie-card-container">
-                                <div className="movie-card">
-                                    <img src={movie[1].poster} alt="" />
-                                </div>
-                                <div className="movie-title">
-                                    <h4> {movie[1].title}</h4>
+                                <div className="movie-card" style={{"--img": `url(${movie[1].backdrops[0]})`}}>
+                                    <div className="movie-detail">
+                                        <div className="movie-poster">
+                                            <img src={movie[1].poster} alt="" />
+                                        </div>
+                                        <div className="movie-title">
+                                            <h4> {movie[1].title}</h4>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </Paper>
