@@ -26,9 +26,15 @@
 }
 
 .movie-detail{
-    position: absolute;
+    position:absolute;
     top:200px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     width:100%;
+}
+
+.movie-title{
+    color: beige;
+    display: flex;
+    align-items: center;
 }
