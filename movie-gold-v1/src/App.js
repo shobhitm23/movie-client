@@ -7,37 +7,30 @@ import Home from "./components/home/Home";
 
 function App() {
   
-  const [movies, setMovies] = useState();
-
-  const getMovies = async () =>{
-
-    try{
-      const response = await fetch('/api/v1/movies', {
-        headers: {
-          "Content-type": "application/json",
-        },
-        method: "get"
-      });
-    
-    const data = await response.json();
-    setMovies(data);
-    console.log(data);
-
-    } catch(err) {
-      console.log(err);
-    }
-
-  } 
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    getMovies();
-  }, [])
+   fetch('http://localhost:8080/api/v1/movies', {
+        headers: {
+          "content": "application/json",
+          redirection: "allow",
+        }
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        const arr = Array.from(data.entries())
+        setMovies(arr);
+        console.log(arr);
+        
+        console.log(arr[0][1]["poster"]);
+      });
+  }, []);
 
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={ <Layout/> } >
-          <Route path="/" element={ <Home/> } >
+          <Route path="/" element={ <Home movies= {movies}/> } >
           
           </Route>
         </Route>
